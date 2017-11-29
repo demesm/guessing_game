@@ -2,6 +2,7 @@ extern crate rand;
 
 use std::io;
 use std::cmp::Ordering;
+use std::{thread, time};
 use rand::Rng;
 
 fn main() {
@@ -31,7 +32,8 @@ fn main() {
             Ordering::Less      => println!("Too Small"),
             Ordering::Greater   => println!("Too Big"),
             Ordering::Equal     => {
-                println!("You win!");
+                println!("You win! Closing in 5 seconds");
+                thread::sleep(time::Duration::from_millis(5000));
                 break;
             }
         }
